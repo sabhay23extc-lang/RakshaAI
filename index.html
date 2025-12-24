@@ -70,8 +70,32 @@
   <div id="map"></div>
 </section>
 
-<audio id="alertSound" src="assets/alert.mp3"></audio>
+<audio id="alertSound" src="assets/alert.mp3">if ("webkitSpeechRecognition" in window) {
+  const recognition = new webkitSpeechRecognition();
+  recognition.lang = "en-IN";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  speakBtn.onclick = () => {
+    recognition.start();
+    statusDiv.textContent = "🎤 Listening...";
+  };
+
+  recognition.onresult = (event) => {
+    emergencyText.value = event.results[0][0].transcript;
+    statusDiv.textContent = "✅ Voice captured";
+  };
+
+  recognition.onerror = () => {
+    statusDiv.textContent = "❌ Voice input failed";
+  };
+} else {
+  speakBtn.onclick = () => {
+    alert("Voice input works only in Google Chrome");
+  };
+}</audio>
 
 <script src="script.js"></script>
 </body>
 </html>
+
