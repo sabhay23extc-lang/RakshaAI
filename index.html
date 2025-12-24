@@ -70,7 +70,12 @@
   <div id="map"></div>
 </section>
 
-<audio id="alertSound" src="assets/alert.mp3">if ("webkitSpeechRecognition" in window) {
+<audio id="alertSound" src="assets/alert.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
+if ("webkitSpeechRecognition" in window) {
   const recognition = new webkitSpeechRecognition();
   recognition.lang = "en-IN";
   recognition.continuous = false;
@@ -93,9 +98,5 @@
   speakBtn.onclick = () => {
     alert("Voice input works only in Google Chrome");
   };
-}</audio>
-
-<script src="script.js"></script>
-</body>
-</html>
+}
 
