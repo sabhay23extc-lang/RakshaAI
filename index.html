@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RakshaAI – AI Emergency Response</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Raksha<span>AI</span></div>
+  <div class="nav-right">AI-Powered Emergency System</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>AI That Responds<br><span>When Every Second Matters</span></h1>
+    <p>
+      RakshaAI detects emergencies, shares live location,
+      prioritizes response, and alerts authorities instantly.
+    </p>
+
+    <div class="hero-stats">
+      <div><strong>⚡ Real-time</strong><span>Detection</span></div>
+      <div><strong>📍 Live</strong><span>Location</span></div>
+      <div><strong>🤖 AI</strong><span>Guidance</span></div>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <h2>🚨 Report Emergency</h2>
+
+    <textarea
+      id="emergencyText"
+      placeholder="Describe the emergency clearly (fire, accident, crime, medical)..."
+    ></textarea>
+
+    <div class="buttons">
+      <button id="speakBtn" class="btn secondary">🎙 Voice</button>
+      <button id="sendBtn" class="btn primary">Send Alert</button>
+    </div>
+
+    <div id="status" class="status"></div>
+  </div>
+</section>
+
+<!-- AI + MAP -->
+<section class="live-section">
+  <div class="ai-box">
+    <h3>🤖 AI Emergency Guidance</h3>
+    <p id="aiText">Waiting for emergency input...</p>
+  </div>
+
+  <div id="map"></div>
+</section>
+
+<audio id="alertSound" src="assets/alert.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
